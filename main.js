@@ -4,14 +4,14 @@ const board = document.getElementById("board");
 const start = document.getElementById("start");
 const startmenu = document.getElementById("startmenu");
 const overlay = document.getElementById("overlay");
-const end = document.getElementById("gameOver");
+const end = document.getElementById("endGame");
 const tdcollection = [].slice.call(document.getElementsByTagName("td")); //document.getelements returns htmlcollection, this is a way to make that an array!
 /*tdcollection.forEach(element => console.log(element));*/
 let shotsText = document.getElementById("shots")
 //get buttons using class getelementsbyclass and put them in an array?
 start.onclick = () =>
 {
-    const ships = [];
+    let ships = [];
     let shots = 10;
 
 
@@ -43,12 +43,22 @@ start.onclick = () =>
        document.getElementById("music").pause();
         board.hidden = true
         overlay.hidden = true
+        end.insertAdjacentHTML("afterbegin",
+            "<h1>You lost. Such a shame honestly...</h1>")
         end.hidden= false
 
 
     }
 
 
+    function gameWon() {
+        document.getElementById("music").pause();
+        board.hidden = true
+        overlay.hidden = true
+        end.insertAdjacentHTML("afterbegin",
+            "<h1>You won! Congratulations!</h1>")
+        end.hidden= false
+    }
 
     function fireShot(tile) {
 
@@ -62,6 +72,11 @@ start.onclick = () =>
             console.log("You hit!")
             tile.style.backgroundColor = "green";
             tile.disabled;
+            //find a way to filter the selected tile and remove it from the array
+            ships.splice(ships.indexOf(target), 1);
+
+            if(ships.length===0)
+                gameWon();
         }
 
         else
