@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico">
+    <title>Zeeslag</title>
+</head>
+<body>
+<!--<embed src="/sounds/Funky%20music.mp3" loop="true" autostart="true" width="0" height="0">--><!--
+<audio autoplay="autoplay">
+    <source src="sounds/Funky%20music.mp3" />
+</audio>-->
+
+<div id="startmenu">
+
+    <img src="images/Naval%20boat.gif" alt="A GIF of a naval vessel bobbing about">
+
+    <button id="start">Start</button>
+
+    <h1 id="explanation">Try to locate the enemy's ship! In this game, you are on the offensive; no defenses needed! You are allowed to miss 10 times in total. Make your shots count...</h1>
+
+</div>
+
+
+
+<div id="board" hidden>
+
+
+    <table>
+        <tr id="tablehead"> <th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th>
+        <tr id="1"> <th>1</th><td class="A"></td><td class="B"></td><td class="C"><td class="D"><td class="E"><td class="F"><td class="G"><td class="H"><td class="I"><td class="J"></tr>
+        <tr id="2"> <th>2</th><td class="A"></td><td class="B"></td><td class="C"><td class="D"><td class="E"><td class="F"><td class="G"><td class="H"><td class="I"><td class="J"></tr>
+        <tr id="3"> <th>3</th><td class="A"></td><td class="B"></td><td class="C"><td class="D"><td class="E"><td class="F"><td class="G"><td class="H"><td class="I"><td class="J"></tr>
+        <tr id="4"> <th>4</th><td class="A"></td><td class="B"></td><td class="C"><td class="D"><td class="E"><td class="F"><td class="G"><td class="H"><td class="I"><td class="J"></tr>
+        <tr id="5"> <th>5</th><td class="A"></td><td class="B"></td><td class="C"><td class="D"><td class="E"><td class="F"><td class="G"><td class="H"><td class="I"><td class="J"></tr>
+        <tr id="6"> <th>6</th><td class="A"></td><td class="B"></td><td class="C"><td class="D"><td class="E"><td class="F"><td class="G"><td class="H"><td class="I"><td class="J"></tr>
+        <tr id="7"> <th>7</th><td class="A"></td><td class="B"></td><td class="C"><td class="D"><td class="E"><td class="F"><td class="G"><td class="H"><td class="I"><td class="J"></tr>
+        <tr id="8"> <th>8</th><td class="A"></td><td class="B"></td><td class="C"><td class="D"><td class="E"><td class="F"><td class="G"><td class="H"><td class="I"><td class="J"></tr>
+        <tr id="9"> <th>9</th><td class="A"></td><td class="B"></td><td class="C"><td class="D"><td class="E"><td class="F"><td class="G"><td class="H"><td class="I"><td class="J"></tr>
+        <tr id="10"> <th>10</th><td class="A"></td><td class="B"></td><td class="C"><td class="D"><td class="E"><td class="F"><td class="G"><td class="H"><td class="I"><td class="J"></tr>
+
+    </table>
+</div>
+
+<div id="overlay" hidden>
+   <h1>Misses allowed : <span id="shots">10</span></h1>
+
+
+</div>
+
+
+<div id="gameOver" hidden>
+
+    <h1>You lost. Such a shame honestly...</h1>
+
+</div>
+
+
+
+<script src="main.js"></script>
+</body>
+</html>

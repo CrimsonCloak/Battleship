@@ -1,0 +1,55 @@
+button{
+    display: block;
+    margin: auto;
+    width: 20rem;
+}
+img {
+    display: block;
+    margin: 2rem auto;
+    width: 20rem;
+}
+body{
+    background-color: #50b9da;
+}
+
+table{
+    display: flex;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50rem;
+    justify-content: center;
+    align-content: center;
+}
+td{
+    width: 3rem;
+    height: 3rem;
+}
+td button{
+    width: 100%;
+    height: 100%;
+
+}
+
+td button:hover{
+/*We will attempt to have a question mark here*/
+    background: url("images/Target.png") center;
+    background-size: cover;
+}
+
+
+
+#overlay{
+  text-align: center;
+}
+#explanation{
+    display: block;
+    margin: 5rem auto;
+    width: 40rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+#gameOver{
+    text-align: center;
+    margin: 50vh auto;
+}
