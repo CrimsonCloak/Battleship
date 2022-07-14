@@ -40,7 +40,7 @@ td button:hover{
 
 
 #overlay{
-  text-align: center;
+    text-align: center;
 }
 #explanation{
     display: block;
@@ -52,4 +52,12 @@ td button:hover{
 #endGame{
     text-align: center;
     margin: 50vh auto;
+}
+div > h1, h2  {
+    display: inline-flex;
+    padding: 0 2rem;
+}
+#feedback{
+    display: block;
+    font-size: 2rem;
 }

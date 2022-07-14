@@ -1,6 +1,7 @@
 
-
+const feedback = document.getElementById("feedback")
 const board = document.getElementById("board");
+const remaining = document.getElementById("remaining");
 const start = document.getElementById("start");
 const startmenu = document.getElementById("startmenu");
 const overlay = document.getElementById("overlay");
@@ -56,16 +57,12 @@ start.onclick = () =>
 
     function fireShot(tile) {
         let target = tile.parentNode.parentNode.id + tile.parentNode.className;
-        //kijken of de id + classname (bv 1A) te vinden is in de array ships
-        //uit de element concatenatie maken van ID en class en dan zoeken of die er inzit met indexof?
-
-        // ships.forEach(ship)  to go through every array (ship) of the array (ships)?
         let hit = false;
         for(let i =0; i < ships.length ; i++) {
 
             if (ships[i].indexOf(target) !== -1) {
                 hit = true;
-                console.log("You hit!")
+                giveFeedback("You hit!")
                 tile.style.backgroundColor = "green";
                 tile.disabled;
                 //find a way to filter the selected tile and remove it from the array
@@ -79,27 +76,18 @@ start.onclick = () =>
                 if (ships.length === 0)
                     gameWon();
 
-                console.log(`This is the big array of all ships: ${ships}`);
-                console.log(`This is the first ship: ${ships[0]}`);
-                console.log(`This is the second ship: ${ships[1]}`);
-                console.log(`Ships left: ${ships.length}`);
-
             } }
 
                if(hit === false){
 
-                   console.log("You missed...")
-                   console.log(`This is the big array of all ships: ${ships}`);
-                   console.log(`This is the first ship: ${ships[0]}`);
-                   console.log(`This is the second ship: ${ships[1]}`);
-                   console.log(`Ships left: ${ships.length}`);
-
+                   giveFeedback("You missed...");
                     shots -= 1;
                     tile.style.backgroundColor = "red";
                     tile.disabled;
                }
 
-        shotsText.innerHTML = shots;
+                 shotsText.innerHTML = shots;
+                 remaining.innerHTML = ships.length;
         if (shots === 0)
             gameOver();
     }
@@ -118,8 +106,7 @@ start.onclick = () =>
         ships.push(ship1,ship2, ship3);
         console.log(ships)
 
-    //occupiedTiles variable will be used to track which tiles are already taken in the generation of ships
-
+    //occupiedTiles variable will be used to track which tiles are already taken in the generation of ships!
 
 
     }
@@ -128,13 +115,23 @@ start.onclick = () =>
         startmenu.hidden = true;
         board.hidden= false;
         overlay.hidden = false;
+        remaining.innerHTML = 3;
         tdcollection.forEach(element =>
             element.insertAdjacentHTML("afterbegin",
                 "<button class='tile'></button>"
             ));
 
     }
+   async function giveFeedback(text) {
+        feedback.innerHTML = text;
+        await(sleep(2000))
+        feedback.innerHTML = "";
 
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
     tilesCollection.forEach(element =>
         element.onclick = () => {
