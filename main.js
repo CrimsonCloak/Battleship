@@ -6,38 +6,33 @@ const startmenu = document.getElementById("startmenu");
 const overlay = document.getElementById("overlay");
 const end = document.getElementById("endGame");
 const tdcollection = [].slice.call(document.getElementsByTagName("td")); //document.getelements returns htmlcollection, this is a way to make that an array!
-/*tdcollection.forEach(element => console.log(element));*/
 let shotsText = document.getElementById("shots")
-//get buttons using class getelementsbyclass and put them in an array?
+
+
 start.onclick = () =>
 {
+/*
+    let occupiedTiles = [];
+*/
     let ships = [];
     let shots = 10;
 
 
+    setupScreen();
     placeShips();
-
-    startmenu.insertAdjacentHTML("afterbegin",
-        "\n" +
-        "<audio id='music' autoplay=\"autoplay\">\n" +
-        "    <source src=\"sounds/Funky%20music.mp3\" />\n" +
-        "</audio>"
-        )
-    startmenu.hidden = true;
-    board.hidden= false;
-    overlay.hidden = false;
-    tdcollection.forEach(element =>
-        element.insertAdjacentHTML("afterbegin",
-            "<button class='tile'></button>"
-        ));
-
-
-
+    setUpMusic();
     const tilesCollection = [].slice.call(document.getElementsByClassName("tile"));
 
 
 
-
+    function setUpMusic() {
+        startmenu.insertAdjacentHTML("afterbegin",
+            "\n" +
+            "<audio id='music' autoplay=\"autoplay\">\n" +
+            "    <source src=\"sounds/Funky%20music.mp3\" />\n" +
+            "</audio>"
+        )
+    }
 
     function gameOver() {
        document.getElementById("music").pause();
@@ -50,7 +45,6 @@ start.onclick = () =>
 
     }
 
-
     function gameWon() {
         document.getElementById("music").pause();
         board.hidden = true
@@ -61,44 +55,86 @@ start.onclick = () =>
     }
 
     function fireShot(tile) {
-
-
         let target = tile.parentNode.parentNode.id + tile.parentNode.className;
         //kijken of de id + classname (bv 1A) te vinden is in de array ships
         //uit de element concatenatie maken van ID en class en dan zoeken of die er inzit met indexof?
 
-        if(ships.indexOf(target) !== -1)
-        {
-            console.log("You hit!")
-            tile.style.backgroundColor = "green";
-            tile.disabled;
-            //find a way to filter the selected tile and remove it from the array
-            ships.splice(ships.indexOf(target), 1);
+        // ships.forEach(ship)  to go through every array (ship) of the array (ships)?
+        let hit = false;
+        for(let i =0; i < ships.length ; i++) {
 
-            if(ships.length===0)
-                gameWon();
-        }
+            if (ships[i].indexOf(target) !== -1) {
+                hit = true;
+                console.log("You hit!")
+                tile.style.backgroundColor = "green";
+                tile.disabled;
+                //find a way to filter the selected tile and remove it from the array
+                /*ships[i].splice(ships[i].indexOf(target), 1);*/
+                console.log(ships[i].splice(ships[i].indexOf(target), 1));
 
-        else
-        {
-            console.log("You missed...")
-            shots -=1;
-            tile.style.backgroundColor = "red";
-            tile.disabled;
-        }
+                if(ships[i].length === 0)
+                    ships.splice(ships.indexOf(ships[i]), 1);
+                console.log(`Destroyed a ship! ${ships.length} left to destroy!`)
+
+                if (ships.length === 0)
+                    gameWon();
+
+                console.log(`This is the big array of all ships: ${ships}`);
+                console.log(`This is the first ship: ${ships[0]}`);
+                console.log(`This is the second ship: ${ships[1]}`);
+                console.log(`Ships left: ${ships.length}`);
+
+            } }
+
+               if(hit === false){
+
+                   console.log("You missed...")
+                   console.log(`This is the big array of all ships: ${ships}`);
+                   console.log(`This is the first ship: ${ships[0]}`);
+                   console.log(`This is the second ship: ${ships[1]}`);
+                   console.log(`Ships left: ${ships.length}`);
+
+                    shots -= 1;
+                    tile.style.backgroundColor = "red";
+                    tile.disabled;
+               }
 
         shotsText.innerHTML = shots;
-        if(shots === 0)
+        if (shots === 0)
             gameOver();
+    }
+
+    function placeShips() {
+ /*       ships:
+       1x6
+       2x 4
+       3x3
+       4x2
+        */
+        let ship1 = ["1A","2A","3A","4A"];
+        let ship2 = ["1B","2B","3B","4B"];
+        let ship3 = ["1I","1J"];
+
+        ships.push(ship1,ship2, ship3);
+        console.log(ships)
+
+    //occupiedTiles variable will be used to track which tiles are already taken in the generation of ships
+
 
 
     }
 
-    function placeShips()
-    {
-     //for this example, we will put a 4-tile long boat from the topleft corner going right
-  ships.push("1A","2A","3A","4A");
+    function setupScreen() {
+        startmenu.hidden = true;
+        board.hidden= false;
+        overlay.hidden = false;
+        tdcollection.forEach(element =>
+            element.insertAdjacentHTML("afterbegin",
+                "<button class='tile'></button>"
+            ));
+
     }
+
 
     tilesCollection.forEach(element =>
         element.onclick = () => {
