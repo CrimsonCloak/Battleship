@@ -2,6 +2,7 @@ button{
     display: block;
     margin: auto;
     width: 20rem;
+    height: 5rem;
 }
 img {
     display: block;
@@ -60,4 +61,11 @@ div > h1, h2  {
 #feedback{
     display: block;
     font-size: 2rem;
+}
+#title{
+    text-align: center;
+    display: block;
+    font-size: 3rem;
+    margin: 5rem 0;
+
 }
