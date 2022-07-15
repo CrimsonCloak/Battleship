@@ -74,7 +74,7 @@ start.onclick = () =>
     }
 
     function gameOver() {
-        music.muted;
+        music.muted; //please github???
         board.hidden = true
         overlay.hidden = true
         end.insertAdjacentHTML("afterbegin",
