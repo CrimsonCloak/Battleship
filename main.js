@@ -100,7 +100,7 @@ start.onclick = () =>
 
             if (ships[i].indexOf(target) !== -1) {
                 hit = true;
-                Math.random() < 0.5 ? boosh1.play(): boosh2.play();
+                Math.random() <= 0.5 ? boosh1.play(): boosh2.play();
                 giveFeedback("You hit!")
                 tile.style.backgroundColor = "green";
                 tile.disabled;
