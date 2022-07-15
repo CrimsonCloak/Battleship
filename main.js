@@ -74,7 +74,7 @@ start.onclick = () =>
     }
 
     function gameOver() {
-       document.getElementById("music").pause();
+        music.muted;
         board.hidden = true
         overlay.hidden = true
         end.insertAdjacentHTML("afterbegin",
@@ -85,7 +85,7 @@ start.onclick = () =>
     }
 
     function gameWon() {
-        document.getElementById("music").pause();
+        music.pause();
         board.hidden = true
         overlay.hidden = true
         end.insertAdjacentHTML("afterbegin",
@@ -101,15 +101,14 @@ start.onclick = () =>
             if (ships[i].indexOf(target) !== -1) {
                 hit = true;
                 Math.random() <= 0.5 ? boosh1.play(): boosh2.play();
-                giveFeedback("You hit!")
+                giveFeedback("You hit!");
                 tile.style.backgroundColor = "green";
                 tile.disabled;
-                //find a way to filter the selected tile and remove it from the array
-                /*ships[i].splice(ships[i].indexOf(target), 1);*/
-                console.log(ships[i].splice(ships[i].indexOf(target), 1));
+                ships[i].splice(ships[i].indexOf(target), 1);
 
                 if(ships[i].length === 0) {
-                    ships.splice(ships.indexOf(ships[i]), 1);
+                    console.log(ships.splice(ships.indexOf(ships[i]), 1));
+                    console.log(ships)
                 }
                 if (ships.length === 0)
                     gameWon();
@@ -122,12 +121,12 @@ start.onclick = () =>
                     shots -= 1;
                     tile.style.backgroundColor = "red";
                     tile.disabled;
+                   if (shots === 0)
+                       gameOver();
                }
 
                  shotsText.innerHTML = shots;
                  remaining.innerHTML = ships.length;
-        if (shots === 0)
-            gameOver();
     }
 
     function placeShips() {
