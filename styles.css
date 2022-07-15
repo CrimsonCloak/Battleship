@@ -1,8 +1,7 @@
-button{
-    display: block;
-    margin: auto;
-    width: 15rem;
-    height: 5rem;
+#startmenu button{
+    display: flex;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
 }
 img {
     display: block;
@@ -44,17 +43,20 @@ td button:hover{
     text-align: center;
 }
 #explanation{
-    display: block;
     margin: 5rem auto;
-    width: 40rem;
+    width: 25rem;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
+}
+#explanation li{
+    list-style: none;
+    text-align: center;
 }
 #endGame{
     text-align: center;
     margin: 50vh auto;
 }
-div > h1, h2  {
+div > h1  {
     display: inline-flex;
     padding: 0 2rem;
 }
@@ -67,5 +69,10 @@ div > h1, h2  {
     display: block;
     font-size: 3rem;
     margin: 2rem 0 5rem 0;
-
 }
+#return button{
+    display: flex;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+}
+
