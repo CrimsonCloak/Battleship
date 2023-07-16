@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+
+    webserver_testing:
+
+        container_name: Battleship
+
+        ports:
+
+            - '80:80'
+
+        image: 'aleksandur24/webserver_testing:1.5'
