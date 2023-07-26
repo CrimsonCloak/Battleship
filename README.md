@@ -1,4 +1,5 @@
 # Battleship
+![Image of Battleship as deployed game](/images/Battleship_image.png)
 
 This is a game I'm making from scratch, inspired by/eventually will be like the (board) game battleship.
 
