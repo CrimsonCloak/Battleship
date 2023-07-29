@@ -9,6 +9,7 @@ const overlay = document.getElementById("overlay");
 const end = document.getElementById("endGame");
 const explanation = document.getElementById("explanation");
 const returnbutton = document.getElementById("return");
+const restartbutton = document.getElementById("restart");
 const tdcollection = [].slice.call(document.getElementsByTagName("td")); //document.getelements returns htmlcollection, this is a way to make that an array!
 let shotsText = document.getElementById("shots");
 let music; let boosh1; let boosh2;
@@ -63,6 +64,10 @@ start.onclick = () =>
     setupPlayScreen();
     setUpMusic();
     const tilesCollection = [].slice.call(document.getElementsByClassName("tile"));
+    restartbutton.onclick = () =>
+    {
+        location.reload()
+    }
 
 
 
@@ -78,9 +83,8 @@ start.onclick = () =>
         board.hidden = true
         overlay.hidden = true
         end.insertAdjacentHTML("afterbegin",
-            "<h1>You lost. Such a shame honestly...</h1>")
+            "<h1>You lost. Better luck next time...</h1>")
         end.hidden= false
-
 
     }
 
@@ -91,6 +95,7 @@ start.onclick = () =>
         end.insertAdjacentHTML("afterbegin",
             "<h1>You won! Congratulations!</h1>")
         end.hidden= false
+
     }
 
     function fireShot(tile) {

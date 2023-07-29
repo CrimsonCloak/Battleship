@@ -1,7 +1,12 @@
-#startmenu button{
+#startbuttons{
     display: flex;
-    margin: 2rem auto;
+    justify-content: center;
+    margin: auto;
+}
+
+#startbuttons button{
     padding: 1rem 2rem;
+    margin: 0rem 1rem;
 }
 img {
     display: block;
@@ -73,6 +78,11 @@ div > h1  {
 #return button{
     display: flex;
     margin: 2rem auto;
+    padding: 1rem 2rem;
+}
+#restart {
+    display: block;
+    margin: auto;
     padding: 1rem 2rem;
 }
 
