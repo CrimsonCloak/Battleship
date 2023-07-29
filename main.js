@@ -34,7 +34,7 @@ rules.onclick = () =>
                        "<ul><li>1 Carrier (5 tiles)</li><li>2 Battleships (4 tiles)</li><li>3 Destroyers (3 tiles)</li><li> 4 Submarines (3 tiles)</li><li>2 Patrol boats (2 tiles)</li> </ul> </p>" +
                     "<h3>Rules</h3>" +
                      "<p>You are allowed to miss 9 shots, but the 10th miss will mean your demise." +
-                     "Every ship occupies a number of consecutive squares on the field, either horizontally or vertically." +
+                     " Every ship occupies a number of consecutive squares on the field, either horizontally or vertically." +
                      "</p> "
         );
         }
